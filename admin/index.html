@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Business Automation</title>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css?v=11">
+</head>
+<body>
+<div class="ripple-overlay" id="rippleOverlay">
+  <div class="ripple-wrap">
+    <span class="ripple-bubble"></span>
+    <span class="ripple-bubble"></span>
+    <span class="ripple-bubble"></span>
+    <div class="ripple-label" id="rippleLabel">Loading…</div>
+  </div>
+</div>
+
+<!-- topbar -->
+<div class="topbar">
+  <button class="icon-btn hamb" id="hamb" aria-label="Menu"><svg class="ic"><use href="../img/icons.svg#menu"/></svg></button>
+  <a class="brand" href="../index.html"><img src="../img/logo.svg" alt="logo"><span>Business Automation</span></a>
+  <div class="spacer"></div>
+  <button class="icon-btn" id="themeBtn" title="Toggle theme"><svg class="ic"><use href="../img/icons.svg#moon"/></svg></button>
+  <div class="profile">
+    <button class="avatar-btn" id="avatarBtn" title="Profile"><span id="avatarInit">A</span></button>
+    <div class="dropdown" id="profileDrop">
+      <div class="who"><b id="dropName">Admin</b><span id="dropRole">Administrator</span></div>
+      <a href="#" data-goto="settings"><svg class="ic"><use href="../img/icons.svg#sliders"/></svg> Settings</a>
+      <button id="logoutBtn"><svg class="ic"><use href="../img/icons.svg#logout"/></svg> Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- sidebar -->
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <button class="side-item active" data-view="dashboard"><span class="ic"><svg class="ic"><use href="../img/icons.svg?v=8#grid"/></svg></span> Dashboard</button>
+  <div class="side-label">Automation</div>
+  <button class="side-item" data-view="comments"><span class="ic"><svg class="ic"><use href="../img/icons.svg#chat"/></svg></span> Comment Automation <span class="tag live">LIVE</span></button>
+  <button class="side-item" data-view="video"><span class="ic"><svg class="ic"><use href="../img/icons.svg#video"/></svg></span> Video Post Automation <span class="tag soon">SOON</span></button>
+  <button class="side-item" data-view="posts"><span class="ic"><svg class="ic"><use href="../img/icons.svg#post"/></svg></span> Post Automation <span class="tag soon">SOON</span></button>
+  <div class="side-label" style="margin-top:18px">System</div>
+  <button class="side-item" data-view="settings"><span class="ic"><svg class="ic"><use href="../img/icons.svg#sliders"/></svg></span> Settings</button>
+  <div class="side-label admin-only" style="margin-top:18px" hidden>Admin</div>
+  <button class="side-item admin-only" data-view="users" hidden><span class="ic"><svg class="ic"><use href="../img/icons.svg#user"/></svg></span> User Details</button>
+  <button class="side-item admin-only" data-view="signup-access" hidden><span class="ic"><svg class="ic"><use href="../img/icons.svg#shield"/></svg></span> Signup Access</button>
+  <button class="side-item admin-only" data-view="smtp" hidden><span class="ic"><svg class="ic"><use href="../img/icons.svg#mail"/></svg></span> Gmail SMTP</button>
+  <a class="side-item" href="../index.html" target="_blank" rel="noopener"><span class="ic"><svg class="ic"><use href="../img/icons.svg#globe"/></svg></span> View Website</a>
+  <div class="side-foot"><svg class="ic"><use href="../img/icons.svg#bot"/></svg> Bot polls every ~30s.<br>Errors &amp; hourly reports go to Discord.</div>
+</aside>
+
+<!-- main -->
+<main class="main">
+
+  <!-- ===== VIEW: dashboard ===== -->
+  <section class="view active" id="view-dashboard">
+    <div class="page-head">
+      <div><h2><svg class="ic"><use href="../img/icons.svg?v=8#grid"/></svg> Dashboard</h2><p id="dashSub">Your overview</p></div>
+      <button class="btn btn-primary" onclick="openModal()"><svg class="ic"><use href="../img/icons.svg#plus"/></svg> Add Account/Page</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v" id="sPages">–</div><div class="l">Total Accounts</div></div>
+      <div class="stat"><div class="v" id="sActive" style="color:var(--ok)">–</div><div class="l">Active</div></div>
+      <div class="stat"><div class="v" id="sToday">–</div><div class="l">Replies Today</div></div>
+      <div class="stat"><div class="v" id="sPoll">–</div><div class="l">Last Poll</div></div>
+      <div class="stat admin-only" id="statUsers" hidden><div class="v" id="sUsers">–</div><div class="l">Total Users</div></div>
+    </div>
+  </section>
+
+  <!-- ===== VIEW: comment automation ===== -->
+  <section class="view" id="view-comments">
+    <div class="page-head">
+      <div><h2><svg class="ic"><use href="../img/icons.svg#chat"/></svg> Facebook Comment Automation</h2><p>Auto-reply to every comment on your accounts &amp; pages — live status &amp; controls</p></div>
+      <button class="btn btn-primary" onclick="openModal()"><svg class="ic"><use href="../img/icons.svg#plus"/></svg> Add Account/Page</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none"><div class="big"><svg class="ic"><use href="../img/icons.svg#inbox"/></svg></div><div>No accounts yet.<br>Click <b>Add Account/Page</b> to connect your first Facebook account or page.</div></div>
+  </section>
+
+  <!-- ===== VIEW: video (wip) ===== -->
+  <section class="view" id="view-video">
+    <div class="wip">
+      <div class="art"><svg class="ic"><use href="../img/icons.svg#video"/></svg></div>
+      <h2>Video Post Automation</h2>
+      <p>Schedule and auto-publish video posts to your Facebook Pages at the perfect time. This module is under construction.</p>
+      <div class="bar"><i></i></div>
+      <small>Coming soon — stay tuned</small>
+    </div>
+  </section>
+
+  <!-- ===== VIEW: posts (wip) ===== -->
+  <section class="view" id="view-posts">
+    <div class="wip">
+      <div class="art"><svg class="ic"><use href="../img/icons.svg#post"/></svg></div>
+      <h2>Post Automation</h2>
+      <p>Plan weeks of content in one sitting — auto-publish text &amp; image posts across all your Pages. This module is under construction.</p>
+      <div class="bar"><i></i></div>
+      <small>Coming soon — stay tuned</small>
+    </div>
+  </section>
+
+  <!-- ===== VIEW: settings ===== -->
+  <section class="view" id="view-settings">
+    <div class="page-head"><div><h2><svg class="ic"><use href="../img/icons.svg#sliders"/></svg> Settings</h2><p>Profile, security, connected accounts &amp; website content</p></div></div>
+    <div class="set-grid">
+
+      <div class="set-card">
+        <h3><svg class="ic"><use href="../img/icons.svg#user"/></svg> Profile</h3><div class="desc">Your admin identity shown in the dashboard</div>
+        <div class="avatar-row">
+          <div class="avatar-prev" id="avatarPrev"><span id="avatarPrevInit">A</span></div>
+          <div>
+            <label class="btn btn-ghost btn-sm" style="cursor:pointer"><svg class="ic"><use href="../img/icons.svg#camera"/></svg> Change photo<input type="file" id="avatarFile" accept="image/*" style="display:none"></label>
+            <div class="hint" style="font-size:11.5px;color:var(--faint);margin-top:8px">JPG/PNG, max 4MB</div>
+          </div>
+        </div>
+        <div class="field"><label>Full Name</label><input id="setFullName" placeholder="Your full name"></div>
+        <div class="field"><label>Username</label><input id="setUsername" placeholder="admin"></div>
+        <div class="field"><label>Email</label><input id="setEmail" type="email" placeholder="you@example.com" disabled><div class="hint" data-ne="Email change गर्न OTP चाहिन्छ — तलको button थिच्नुहोस्">Email change requires OTP — press the button below</div></div>
+        <div class="otp-box" id="emailOtpBox" style="display:none">
+          <div class="field"><label>New email</label><input id="newEmail" type="email" placeholder="new@example.com"></div>
+          <div class="field" id="emailCodeField" style="display:none"><label data-ne="6-digit code (नयाँ email मा पठाइयो)">6-digit code (sent to the new email)</label><input id="emailCode" inputmode="numeric" maxlength="6" placeholder="••••••"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-ghost btn-sm" id="sendEmailOtpBtn" onclick="sendEmailOtp()">Send Code</button>
+            <button class="btn btn-primary btn-sm" id="confirmEmailBtn" onclick="confirmEmail()" style="display:none">Verify &amp; Change</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+          <button class="btn btn-primary" id="saveProfileBtn" onclick="saveProfile()">Save Profile</button>
+          <button class="btn btn-ghost" id="changeEmailBtn" onclick="toggleEmailBox()">Change Email</button>
+        </div>
+      </div>
+
+      <div class="set-card">
+        <h3><svg class="ic"><use href="../img/icons.svg#key"/></svg> Password</h3><div class="desc">Change your login password</div>
+        <div class="field"><label>Current password</label><input id="pwCur" type="password" autocomplete="current-password"></div>
+        <div class="field"><label>New password</label><input id="pwNew" type="password" autocomplete="new-password"></div>
+        <div class="field"><label>Confirm new password</label><input id="pwNew2" type="password" autocomplete="new-password"></div>
+        <button class="btn btn-primary" id="savePwBtn" onclick="savePassword()">Change Password</button>
+      </div>
+
+      <div class="set-card full">
+        <h3><svg class="ic"><use href="../img/icons.svg#facebook"/></svg> Connected Facebook Pages / Accounts</h3><div class="desc">Pages added for Comment Automation — manage them in the automation tab</div>
+        <div id="connList"><div style="color:var(--faint);font-size:14px">Loading…</div></div>
+      </div>
+
+      <div class="set-card admin-only" hidden>
+        <h3><svg class="ic"><use href="../img/icons.svg#mail"/></svg> Contact Details</h3><div class="desc">Shown in the website footer &amp; contact section</div>
+        <div class="field"><label>Email</label><input id="ctEmail" placeholder="hello@businessautomation.com"></div>
+        <div class="form-2">
+          <div class="field"><label>Phone</label><input id="ctPhone" placeholder="+977-9800000000"></div>
+          <div class="field"><label>Address</label><input id="ctAddr" placeholder="Kathmandu, Nepal"></div>
+        </div>
+      </div>
+
+      <div class="set-card admin-only" hidden>
+        <h3><svg class="ic"><use href="../img/icons.svg#link"/></svg> Social Media Links</h3><div class="desc">Shown in the website footer &amp; About section — leave empty to hide</div>
+        <div class="form-2">
+          <div class="field"><label>Facebook</label><input id="soFb" placeholder="https://facebook.com/…"></div>
+          <div class="field"><label>Instagram</label><input id="soIg" placeholder="https://instagram.com/…"></div>
+          <div class="field"><label>YouTube</label><input id="soYt" placeholder="https://youtube.com/…"></div>
+          <div class="field"><label>TikTok</label><input id="soTk" placeholder="https://tiktok.com/…"></div>
+        </div>
+      </div>
+
+      <div class="set-card full admin-only" hidden>
+        <h3><svg class="ic"><use href="../img/icons.svg#info"/></svg> About Section</h3><div class="desc">Headline &amp; description shown on the website's About section</div>
+        <div class="field"><label>About headline</label><input id="abTitle" placeholder="We Help Businesses Never Miss a Customer"></div>
+        <div class="field"><label>About description</label><textarea id="abText" placeholder="Tell visitors what Business Automation does…"></textarea></div>
+        <button class="btn btn-primary" id="saveSiteBtn" onclick="saveSite()">Save Website Content</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== VIEW: user details (admin only) ===== -->
+  <section class="view" id="view-users">
+    <div class="page-head"><div><h2><svg class="ic"><use href="../img/icons.svg#user"/></svg> User Details</h2><p>All registered users — roles &amp; access control</p></div>
+    <button class="btn btn-ghost" onclick="loadUsers()"><svg class="ic"><use href="../img/icons.svg#check"/></svg> Refresh</button></div>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>Name</th><th>Username</th><th>Email</th><th>Role</th><th>Status</th><th>Pages</th><th>Joined</th><th>Actions</th></tr></thead>
+      <tbody id="usersBody"><tr><td colspan="8" style="text-align:center;color:var(--faint)">Loading…</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <!-- ===== VIEW: signup access (admin only) ===== -->
+  <section class="view" id="view-signup-access">
+    <div class="page-head"><div><h2><svg class="ic"><use href="../img/icons.svg#shield"/></svg> Signup Access</h2><p>Control whether new users can sign up themselves</p></div></div>
+    <div class="toggle-row">
+      <label class="switch" title="On/Off"><input type="checkbox" id="signupToggle"><span class="slider"></span></label>
+      <div class="tinfo"><b id="signupStateLabel">Signup ON</b>
+      <span>ON हुँदा login page को "Create account" मा Sign Up खुल्छ र AI chat ले signup process बताउँछ।<br>OFF हुँदा signup बन्द हुन्छ — नयाँ account को लागि admin लाई contact गर्नुपर्छ।</span></div>
+    </div>
+    <div style="margin-top:16px"><button class="btn btn-primary" id="saveSignupBtn" onclick="saveSignupAccess()">Save</button></div>
+  </section>
+
+  <!-- ===== VIEW: gmail smtp (admin only) ===== -->
+  <section class="view" id="view-smtp">
+    <div class="page-head"><div><h2><svg class="ic"><use href="../img/icons.svg#mail"/></svg> Gmail SMTP</h2><p>Signup &amp; email-change OTP codes पठाउने email setup</p></div></div>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3><svg class="ic"><use href="../img/icons.svg#mail"/></svg> SMTP Account</h3>
+        <div class="desc">Gmail address + App Password — <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener" style="color:var(--brand1)">App Password बनाउने तरिका</a> (2-Step Verification ON चाहिन्छ)</div>
+        <div class="field"><label>Gmail Address</label><input id="smtpUser" type="email" placeholder="youremail@gmail.com"></div>
+        <div class="field"><label>App Password</label><input id="smtpPass" type="password" placeholder="••••••••••••••••" autocomplete="new-password"><div class="hint">खाली छोडे पुरानै password रहन्छ</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" id="saveSmtpBtn" onclick="saveSmtp()">Save</button>
+          <button class="btn btn-ghost" id="testSmtpBtn" onclick="testSmtp()">Send Test Email</button>
+        </div>
+        <div class="smtp-status" id="smtpStatus"><span class="dot"></span><span>Checking…</span></div>
+      </div>
+      <div class="set-card">
+        <h3><svg class="ic"><use href="../img/icons.svg#info"/></svg> कसरी काम गर्छ?</h3>
+        <div class="desc">OTP email flow</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.8">
+          1. User ले signup गर्दा 6-digit code यही Gmail बाट <b style="color:var(--text)">"Business Automation"</b> को नाममा जान्छ।<br>
+          2. Code 10 मिनेट valid हुन्छ, 5 गलत प्रयास पछि block।<br>
+          3. Settings मा email change गर्दा पनि नयाँ email मा code जान्छ।<br>
+          4. App Password भनेको Gmail password होइन — Google Account → Security → 2-Step Verification → App passwords बाट 16 अक्षरको code बनाउनुहोस्।
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- page modal -->
+<div class="modal-bg" id="mback" onclick="if(event.target===this)closeModal()"><div class="modal">
+  <h3 id="mtitle">Add Facebook Account/Page</h3>
+  <input type="hidden" id="fId">
+  <div class="field"><label>Account/Page ID</label><input id="fPageId" placeholder="e.g. 836245152894980"><div class="hint" data-ne="Facebook Account/Page को numeric ID">Numeric ID of the Facebook account/page</div></div>
+  <div class="field"><label>Account/Page Access Token</label><input id="fToken" type="password" placeholder="EAAP…"><div class="hint" id="tokenHint" data-ne="Graph API Explorer बाट लिएको Account/Page token — verify गरेर मात्र save हुन्छ।">Account/Page token from Graph API Explorer — it is verified before saving.</div></div>
+  <div class="field"><label>Account/Page Name <span style="color:var(--faint)" data-ne="(optional — token बाट auto-detect)">(optional — auto-detected from token)</span></label><input id="fName" placeholder="My Page"></div>
+  <div class="field"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><label style="margin:0">Auto-Reply Message</label><button type="button" class="btn btn-ghost btn-sm" id="insNameBtn" data-ne="+ नाम थप्नुहोस्" title="{name}">+ Insert name</button></div><textarea id="fMsg" data-ne-ph="नमस्ते {name} जी! 🙏 …" placeholder="Hi {name}! Thanks for your comment! …"></textarea><div class="hint" data-ne="<b>{name}</b> लेखे comment गर्नेको नाम आउँछ।"><b>{name}</b> is replaced with the commenter’s name.</div></div>
+  <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px">
+    <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" id="saveBtn" onclick="savePage()">Save Page</button>
+  </div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<script src="js/admin.js?v=10"></script>
+</body>
+</html>
