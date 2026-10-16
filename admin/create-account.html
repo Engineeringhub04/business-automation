@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Account — Business Automation</title>
+<meta name="description" content="Create your Business Automation account.">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=11">
+</head>
+<body>
+<div class="ripple-overlay gone" id="rippleOverlay">
+  <div class="ripple-wrap">
+    <span class="ripple-bubble"></span>
+    <span class="ripple-bubble"></span>
+    <span class="ripple-bubble"></span>
+    <div class="ripple-label">Loading…</div>
+  </div>
+</div>
+<nav class="nav"><div class="container nav-inner">
+<a class="brand" href="../index.html"><img src="../img/logo.svg" alt="logo"><span>Business Automation</span></a>
+<div class="nav-actions"><button class="theme-btn" id="themeBtn"><svg class="ic"><use href="../img/icons.svg#moon"/></svg></button><a class="btn btn-primary btn-sm" href="login.html" data-auth-btn>Login <svg class="ic"><use href="../img/icons.svg#arrow-right"/></svg></a><button class="burger" id="burger" aria-label="Menu"><svg class="ic"><use href="../img/icons.svg#menu"/></svg></button></div>
+</div></nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../index.html">Home</a>
+<a href="../index.html#services">Services</a>
+<a href="../index.html#features">Features</a>
+<a href="../index.html#about">About</a>
+<a class="btn btn-primary btn-sm" href="login.html" data-auth-btn>Login <svg class="ic"><use href="../img/icons.svg#arrow-right"/></svg></a>
+</div>
+
+<main class="legal"><div class="container"><div class="paper auth">
+<a class="back-link" href="../index.html">← Back to home</a>
+<h1 id="pageTitle">Create Account</h1>
+<p class="auth-sub" id="pageSub">Create your account</p>
+
+<div id="loadingBox" class="loading-line">Loading…</div>
+
+<!-- signup form: shown when Signup Access is ON -->
+<div id="signupBox" class="auth-form" style="display:none">
+  <div class="err-msg" id="err"></div>
+  <div class="field"><label>Full Name</label><input id="fullName" placeholder="Your full name" autocomplete="name"></div>
+  <div class="field"><label>Username</label><input id="username" placeholder="Choose a username" autocomplete="username"><div class="hint">3–32 characters: a-z, 0-9, _, ., -</div></div>
+  <div class="field"><label>Email</label><input id="email" type="email" placeholder="you@example.com" autocomplete="email"><div class="hint">The verification code will be sent to this email</div></div>
+  <div class="field"><label>Password</label><input id="password" type="password" placeholder="Minimum 6 characters" autocomplete="new-password"></div>
+  <button class="btn btn-primary btn-block" id="signupBtn" onclick="signup()">Create Account <svg class="ic"><use href="../img/icons.svg#arrow-right"/></svg></button>
+</div>
+
+<!-- contact admin: shown when Signup Access is OFF -->
+<div id="contactBox" style="display:none">
+  <div class="contact-card">
+    <h3>Contact Admin</h3>
+    <p>Self-signup is currently closed. Contact the admin to get an account.</p>
+    <div id="contactLines"><div class="loading-line">Loading…</div></div>
+  </div>
+</div>
+
+<div class="auth-alt">Already have an account? <a href="login.html">Login</a></div>
+</div></div></main>
+
+<footer class="site">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="../index.html"><img src="../img/logo.svg" alt="logo" style="width:38px;height:38px;border-radius:11px"><span data-brand>Business Automation</span></a>
+        <p>Facebook automation for modern businesses — replies, posts & videos on autopilot.</p>
+        <div class="socials" data-socials>
+          <a href="#" data-soc="facebook" title="Facebook" aria-label="Facebook"><svg class="ic"><use href="../img/icons.svg#facebook"/></svg></a>
+          <a href="#" data-soc="instagram" title="Instagram" aria-label="Instagram"><svg class="ic"><use href="../img/icons.svg#instagram"/></svg></a>
+          <a href="#" data-soc="youtube" title="YouTube" aria-label="YouTube"><svg class="ic"><use href="../img/icons.svg#youtube"/></svg></a>
+          <a href="#" data-soc="tiktok" title="TikTok" aria-label="TikTok"><svg class="ic"><use href="../img/icons.svg#music"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Explore</h4>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#about">About</a>
+      </div>
+      <div class="f-col">
+        <h4>Legal</h4>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms &amp; Conditions</a>
+        <a href="../cookies.html">Cookie Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul class="f-contact">
+          <li><svg class="ic"><use href="../img/icons.svg#mail"/></svg> <a href="#" data-contact="email">hello@businessautomation.com</a></li>
+          <li><svg class="ic"><use href="../img/icons.svg#phone"/></svg> <a href="#" data-contact="phone">+977-9800000000</a></li>
+          <li><svg class="ic"><use href="../img/icons.svg#pin"/></svg> <span data-contact="address">Kathmandu, Nepal</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> <span data-brand>Business Automation</span>. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../cookies.html">Cookies</a><a href="../disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const r=document.documentElement,t=document.getElementById('themeBtn');
+const ti=n=>'<svg class="ic"><use href="../img/icons.svg#'+(n==='dark'?'moon':'sun')+'"/></svg>';
+try{const s=localStorage.getItem('ba-theme')||'dark';r.setAttribute('data-theme',s);t.innerHTML=ti(s);}catch(e){}
+t.onclick=()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);t.innerHTML=ti(n);try{localStorage.setItem('ba-theme',n);}catch(e){}};
+
+var burger=document.getElementById('burger'),mMenu=document.getElementById('mobileMenu');
+function bi(o){return '<svg class="ic"><use href="../img/icons.svg#'+(o?'x':'menu')+'"/></svg>';}
+if(burger&&mMenu){burger.addEventListener('click',function(){var o=mMenu.classList.toggle('open');burger.innerHTML=bi(o);});mMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mMenu.classList.remove('open');burger.innerHTML=bi(false);});});}
+
+document.querySelectorAll('a[data-auth-btn]').forEach(function(a){
+  a.addEventListener('click',function(){
+    var ov=document.getElementById('rippleOverlay');
+    if(!ov)return;
+    var l=ov.querySelector('.ripple-label');
+    if(l)l.textContent=a.getAttribute('href').indexOf('create-account')>-1?'Opening signup…':'Opening login…';
+    ov.classList.remove('gone');
+  });
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<script src="../js/footer.js"></script>
+<script src="../js/chatbot.js"></script>
+<script>
+(function(){
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  fetch('/api/signup-status').then(r=>r.json()).then(j=>{
+    document.getElementById('loadingBox').style.display='none';
+    if(j.signupEnabled){
+      document.getElementById('signupBox').style.display='';
+      document.getElementById('pageTitle').textContent='Create Account';
+      document.getElementById('pageSub').textContent='Create your account';
+      for(const id of ['fullName','username','email','password']){
+        document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')signup()});
+      }
+      document.getElementById('fullName').focus();
+    }else{
+      document.getElementById('contactBox').style.display='';
+      document.getElementById('pageTitle').textContent='Signup Closed';
+      document.getElementById('pageSub').textContent='Signup is currently closed';
+      fetch('/api/site-info').then(r=>r.json()).then(d=>{
+        const c=(d.site&&d.site.contact)||{};
+        let h='';
+        if(c.email) h+='<div class="contact-line">Email: <a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a></div>';
+        if(c.phone) h+='<div class="contact-line">Phone: <a href="tel:'+esc(c.phone.replace(/\s/g,''))+'">'+esc(c.phone)+'</a></div>';
+        if(c.address) h+='<div class="contact-line">'+esc(c.address)+'</div>';
+        document.getElementById('contactLines').innerHTML=h||'<div class="loading-line">Contact info not available</div>';
+      }).catch(()=>{document.getElementById('contactLines').innerHTML='<div class="loading-line">Could not load contact info</div>';});
+    }
+  }).catch(()=>{
+    document.getElementById('loadingBox').textContent='Could not load — please refresh the page.';
+  });
+})();
+async function signup(){
+  const btn=document.getElementById('signupBtn'),err=document.getElementById('err');
+  btn.disabled=true;btn.innerHTML='<span class="spin"></span>Creating account…';err.textContent='';
+  try{
+    const r=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        fullName:document.getElementById('fullName').value.trim(),
+        username:document.getElementById('username').value.trim(),
+        email:document.getElementById('email').value.trim(),
+        password:document.getElementById('password').value
+      })});
+    const j=await r.json().catch(()=>({}));
+    if(r.ok&&j.ok){location.href='/admin/verify-otp.html?email='+encodeURIComponent(j.email);return;}
+    err.textContent=j.error||'Signup failed';
+  }catch(e){err.textContent='Connection error';}
+  btn.disabled=false;btn.innerHTML='Create Account <svg class="ic"><use href="../img/icons.svg#arrow-right"/></svg>';
+}
+</script>
+</body>
+</html>
