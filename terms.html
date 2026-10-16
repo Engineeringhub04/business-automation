@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms &amp; Conditions — Business Automation</title>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner">
+<a class="brand" href="/"><img src="img/logo.svg" alt="logo"><span>Business Automation</span></a>
+<div class="nav-actions"><button class="theme-btn" id="themeBtn"><svg class="ic"><use href="img/icons.svg#moon"/></svg></button><a class="btn btn-primary btn-sm" href="/admin/login.html" data-auth-btn>Get Started <svg class="ic"><use href="img/icons.svg#arrow-right"/></svg></a></div>
+</div></nav>
+<main class="legal"><div class="container"><div class="paper">
+<a class="back-link" href="/">← Back to home</a>
+<h1>Terms &amp; Conditions</h1>
+<div class="updated">Last updated: <span class="auto-date">September 2026</span></div>
+<p>By accessing or using Business Automation ("the Service"), you agree to these terms.</p>
+<h2>1. The service</h2>
+<p>Business Automation provides tools to automate replies, posts, and video publishing on Facebook Pages you administer. Features marked "Coming soon" are not yet available and carry no delivery commitment.</p>
+<h2>2. Your responsibilities</h2>
+<ul>
+<li>You must own or be an authorized admin of every Facebook Page you connect.</li>
+<li>You are responsible for the content of your auto-reply messages and scheduled posts, and for complying with Facebook's Platform Terms and Community Standards.</li>
+<li>Keep your login credentials confidential. Activity under your account is your responsibility.</li>
+</ul>
+<h2>3. Acceptable use</h2>
+<p>You agree not to use the Service for spam, harassment, misinformation, or any activity that violates applicable law or Facebook's policies. We may suspend automation for Pages that trigger repeated policy violations.</p>
+<h2>4. Availability</h2>
+<p>We aim for high availability and use self-healing monitoring, but the Service depends on third-party platforms (e.g., Meta's Graph API). We do not guarantee uninterrupted operation and are not liable for missed replies during outages.</p>
+<h2>5. Limitation of liability</h2>
+<p>To the maximum extent permitted by law, Business Automation is provided "as is" without warranties. Our total liability for any claim is limited to the amount you paid for the Service in the preceding 3 months (if none, then zero).</p>
+<h2>6. Termination</h2>
+<p>You may stop using the Service at any time by disconnecting your Pages. We may suspend or terminate access for violations of these terms.</p>
+<h2>7. Changes</h2>
+<p>We may revise these terms; material changes will be reflected in the "Last updated" date. Continued use after changes means acceptance.</p>
+</div></div></main>
+<footer class="site">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="/"><img src="img/logo.svg" alt="logo" style="width:38px;height:38px;border-radius:11px"><span data-brand>Business Automation</span></a>
+        <p>Facebook automation for modern businesses — replies, posts & videos on autopilot.</p>
+        <div class="socials" data-socials>
+          <a href="#" data-soc="facebook" title="Facebook" aria-label="Facebook"><svg class="ic"><use href="img/icons.svg#facebook"/></svg></a>
+          <a href="#" data-soc="instagram" title="Instagram" aria-label="Instagram"><svg class="ic"><use href="img/icons.svg#instagram"/></svg></a>
+          <a href="#" data-soc="youtube" title="YouTube" aria-label="YouTube"><svg class="ic"><use href="img/icons.svg#youtube"/></svg></a>
+          <a href="#" data-soc="tiktok" title="TikTok" aria-label="TikTok"><svg class="ic"><use href="img/icons.svg#music"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Explore</h4>
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#features">Features</a>
+        <a href="/#about">About</a>
+      </div>
+      <div class="f-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="cookies.html">Cookie Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul class="f-contact">
+          <li><svg class="ic"><use href="img/icons.svg#mail"/></svg> <a href="#" data-contact="email">hello@businessautomation.com</a></li>
+          <li><svg class="ic"><use href="img/icons.svg#phone"/></svg> <a href="#" data-contact="phone">+977-9800000000</a></li>
+          <li><svg class="ic"><use href="img/icons.svg#pin"/></svg> <span data-contact="address">Kathmandu, Nepal</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> <span data-brand>Business Automation</span>. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+const r=document.documentElement,t=document.getElementById('themeBtn');
+const ti=n=>'<svg class="ic"><use href="img/icons.svg#'+(n==='dark'?'moon':'sun')+'"/></svg>';
+try{const s=localStorage.getItem('ba-theme')||'dark';r.setAttribute('data-theme',s);t.innerHTML=ti(s);}catch(e){}
+t.onclick=()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);t.innerHTML=ti(n);try{localStorage.setItem('ba-theme',n);}catch(e){}};
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<script src="js/footer.js"></script>
+<script src="js/chatbot.js"></script>
+</body></html>
