@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Business Automation</title>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner">
+<a class="brand" href="/"><img src="img/logo.svg" alt="logo"><span>Business Automation</span></a>
+<div class="nav-actions"><button class="theme-btn" id="themeBtn"><svg class="ic"><use href="img/icons.svg#moon"/></svg></button><a class="btn btn-primary btn-sm" href="/admin/login.html" data-auth-btn>Get Started <svg class="ic"><use href="img/icons.svg#arrow-right"/></svg></a></div>
+</div></nav>
+<main class="legal"><div class="container"><div class="paper">
+<a class="back-link" href="/">← Back to home</a>
+<h1>Privacy Policy</h1>
+<div class="updated">Last updated: <span class="auto-date">September 2026</span></div>
+<p>Business Automation ("we", "our") provides Facebook automation tools. This policy explains what data we collect and how we use it.</p>
+<h2>1. Data we collect</h2>
+<ul>
+<li><b>Account data:</b> the username and contact details you provide in Settings.</li>
+<li><b>Facebook data:</b> Page IDs, Page access tokens, and public comment content needed to deliver auto-replies. Tokens are stored securely on your server and never shared.</li>
+<li><b>Usage data:</b> basic analytics such as pages visited and automation statistics, used only to improve the service.</li>
+</ul>
+<h2>2. How we use data</h2>
+<p>We use your data solely to operate the automation services you enable — replying to comments, scheduling posts, and showing your dashboard statistics. We do not sell, rent, or share your personal data with third parties for marketing.</p>
+<h2>3. Cookies</h2>
+<p>We use a small number of cookies: a session cookie to keep you logged in, a theme preference, and your cookie-consent choice. See our <a href="cookies.html">Cookie Policy</a>.</p>
+<h2>4. Data security</h2>
+<p>Access tokens and passwords are stored hashed/encrypted on the server with restricted file permissions. While no system is 100% secure, we follow industry-standard practices to protect your data.</p>
+<h2>5. Your rights</h2>
+<p>You may request access, correction, or deletion of your data at any time via the contact details in the footer. Deleting a connected Page immediately stops all automation for it.</p>
+<h2>6. Changes</h2>
+<p>We may update this policy; the "Last updated" date above will reflect changes. Continued use of the service constitutes acceptance.</p>
+<h2>7. Contact</h2>
+<p>Questions about privacy? Reach us via the contact details on our <a href="/#about">About</a> section.</p>
+</div></div></main>
+<footer class="site">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="/"><img src="img/logo.svg" alt="logo" style="width:38px;height:38px;border-radius:11px"><span data-brand>Business Automation</span></a>
+        <p>Facebook automation for modern businesses — replies, posts & videos on autopilot.</p>
+        <div class="socials" data-socials>
+          <a href="#" data-soc="facebook" title="Facebook" aria-label="Facebook"><svg class="ic"><use href="img/icons.svg#facebook"/></svg></a>
+          <a href="#" data-soc="instagram" title="Instagram" aria-label="Instagram"><svg class="ic"><use href="img/icons.svg#instagram"/></svg></a>
+          <a href="#" data-soc="youtube" title="YouTube" aria-label="YouTube"><svg class="ic"><use href="img/icons.svg#youtube"/></svg></a>
+          <a href="#" data-soc="tiktok" title="TikTok" aria-label="TikTok"><svg class="ic"><use href="img/icons.svg#music"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Explore</h4>
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#features">Features</a>
+        <a href="/#about">About</a>
+      </div>
+      <div class="f-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="cookies.html">Cookie Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul class="f-contact">
+          <li><svg class="ic"><use href="img/icons.svg#mail"/></svg> <a href="#" data-contact="email">hello@businessautomation.com</a></li>
+          <li><svg class="ic"><use href="img/icons.svg#phone"/></svg> <a href="#" data-contact="phone">+977-9800000000</a></li>
+          <li><svg class="ic"><use href="img/icons.svg#pin"/></svg> <span data-contact="address">Kathmandu, Nepal</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> <span data-brand>Business Automation</span>. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+const r=document.documentElement,t=document.getElementById('themeBtn');
+const ti=n=>'<svg class="ic"><use href="img/icons.svg#'+(n==='dark'?'moon':'sun')+'"/></svg>';
+try{const s=localStorage.getItem('ba-theme')||'dark';r.setAttribute('data-theme',s);t.innerHTML=ti(s);}catch(e){}
+t.onclick=()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);t.innerHTML=ti(n);try{localStorage.setItem('ba-theme',n);}catch(e){}};
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<script src="js/footer.js"></script>
+<script src="js/chatbot.js"></script>
+</body></html>
